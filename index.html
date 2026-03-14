@@ -26,7 +26,7 @@ scroll-behavior:smooth;
 #intro{
 position:fixed;
 inset:0;
-background:black;
+background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover no-repeat;
 color:white;
 display:flex;
 flex-direction:column;
@@ -59,26 +59,33 @@ margin-top:20px;
 /* RINGS */
 .rings{
 position:relative;
-width:140px;
-height:140px;
+width:160px;
+height:120px;
 margin-bottom:20px;
 }
 
-.ring{
+.ring-img{
 position:absolute;
 width:90px;
-height:90px;
-border:6px solid var(--gold);
-border-radius:50%;
-box-shadow:0 0 15px rgba(212,175,55,0.8),0 0 40px rgba(212,175,55,0.5);
-animation:spinRing 10s linear infinite;
+animation:ringSpin 12s linear infinite;
+filter:drop-shadow(0 0 10px rgba(212,175,55,0.7));
 }
 
-.ring:nth-child(1){left:0;top:20px}
-.ring:nth-child(2){left:50px;top:20px;animation-direction:reverse}
+.ring-img.left{
+left:0;
+top:20px;
+}
 
-@keyframes spinRing{
-0%{transform:rotateY(0deg)}
+.ring-img.right{
+right:0;
+top:20px;
+animation-direction:reverse;
+}
+
+@keyframes ringSpin{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
 100%{transform:rotateY(360deg)}
 }
 
@@ -260,7 +267,9 @@ animation:floatSpark 10s linear forwards;
 
 </style></head><body><div id="intro">
 <div class="rings">
-<div class="ring"></div>
+<img class="ring-img left" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Wedding_ring_gold.png">
+<img class="ring-img right" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Wedding_ring_gold.png">
+</div>
 <div class="ring"></div>
 </div>
 <h1>Marcelo & Roseli</h1>
